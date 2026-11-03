@@ -1,0 +1,47 @@
+name: Java — Compilação dos exercícios
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compilar:
+    name: Compilar arquivos Java
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compilar cada exercício separadamente
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          total=0
+          while IFS= read -r -d '' arquivo; do
+            total=$((total + 1))
+            pasta_compilacao="$(mktemp -d)"
+            echo "Compilando: $arquivo"
+            if ! javac -encoding UTF-8 -d "$pasta_compilacao" "$arquivo"; then
+              rm -rf "$pasta_compilacao"
+              echo "::error file=$arquivo::Falha na compilação de $arquivo"
+              exit 1
+            fi
+            rm -rf "$pasta_compilacao"
+          done < <(find . -type f -name '*.java' -not -path './.git/*' -print0)
+
+          if [ "$total" -eq 0 ]; then
+            echo "::error::Nenhum arquivo .java foi encontrado."
+            exit 1
+          fi
+
+          echo "Compilação concluída: $total arquivo(s) Java."
