@@ -1,6 +1,6 @@
 # ☕ Brew & Code
 
-*Um pouco de Java, muito aprendizado.*
+*Brewing ideas, writing code.*
 
 ### 🇧🇷 Sobre o repositório
 
