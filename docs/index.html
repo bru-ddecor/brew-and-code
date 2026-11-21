@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimente o exercício Par ou Ímpar do Brew & Code no navegador.">
+  <title>Par ou Ímpar · Brew &amp; Code</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="par-ou-impar.js" defer></script>
+</head>
+<body>
+  <main>
+    <a class="brand" href="https://github.com/bru-ddecor/brew-and-code">☕ Brew &amp; Code</a>
+    <h1>Par ou <em>Ímpar?</em></h1>
+    <p class="intro">Escolha dois números inteiros e veja quais são pares ou ímpares no intervalo, em ordem decrescente.</p>
+
+    <div class="exercise">
+      <form id="exercise">
+        <div class="limits">
+          <label for="lower">Primeiro número
+            <input id="lower" name="lower" type="number" value="2" step="1" min="-2147483648" max="2147483647" required>
+          </label>
+          <label for="upper">Segundo número
+            <input id="upper" name="upper" type="number" value="8" step="1" min="-2147483648" max="2147483647" required aria-describedby="range-hint">
+          </label>
+        </div>
+        <p class="hint" id="range-hint">O segundo número deve ser maior. A diferença pode ser de até 1.000.</p>
+        <fieldset>
+          <legend>Quais números listar?</legend>
+          <label><input type="radio" name="parity" value="even" checked> Pares</label>
+          <label><input type="radio" name="parity" value="odd"> Ímpares</label>
+        </fieldset>
+        <button type="submit">Mostrar resultado</button>
+      </form>
+
+      <section class="result" aria-labelledby="result-title">
+        <h2 id="result-title">Resultado</h2>
+        <p id="status" role="status">Use os valores de exemplo ou escolha os seus.</p>
+        <p id="numbers" class="numbers" hidden></p>
+      </section>
+    </div>
+
+    <footer>
+      Esta demonstração usa JavaScript no navegador.
+      <a href="https://github.com/bru-ddecor/brew-and-code/blob/main/04-estruturas-de-repeticao/ParOuImpar.java">Ver o exercício original em Java</a>
+    </footer>
+  </main>
+</body>
+</html>

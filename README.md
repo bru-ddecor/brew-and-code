@@ -2,6 +2,10 @@
 
 *Brewing ideas, writing code.*
 
+**[Experimente Par ou Ímpar no navegador](https://bru-ddecor.github.io/brew-and-code/)**
+
+Escolha dois números e veja os pares ou ímpares do intervalo. A demonstração usa JavaScript e inclui um link para o exercício original em Java.
+
 ### 🇧🇷 Sobre o repositório
 
 Bem-vindo(a) ao meu pequeno laboratório de Java!
